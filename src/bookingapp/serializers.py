@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from . import models
 
 User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
@@ -13,3 +14,10 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return validated_data
+
+
+class PassportSerializer(serializers.ModelSerializer):
+    owner = UserSerializer(read_only=True)
+    class Meta:
+        model = models.PassportPhoto
+        fields = ['owner', 'image', 'id']
