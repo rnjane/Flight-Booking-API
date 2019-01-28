@@ -34,4 +34,4 @@ class FlightBookingSerializer(serializers.ModelSerializer):
     flight = FlightsSerializer(read_only=True)
     class Meta:
         model = models.FlightBooking
-        fields = ['owner', 'flight']
+        fields = ['owner', 'flight', 'reserved']
