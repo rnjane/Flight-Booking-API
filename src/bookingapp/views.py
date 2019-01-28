@@ -1,13 +1,13 @@
 from django.contrib.auth import get_user_model, authenticate
 from rest_framework import status, response, permissions, generics, views, authtoken
-from .serializers import UserSerializer
+from . import serializers, models
 from rest_framework.decorators import permission_classes
 
 User = get_user_model()
 
 class UserCreate(generics.CreateAPIView):
     permission_classes = (permissions.AllowAny,)
-    serializer_class = UserSerializer
+    serializer_class = serializers.UserSerializer
     queryset = User.objects.all()
 
 
@@ -27,3 +27,21 @@ class LoginUser(views.APIView):
             token, _ = authtoken.models.Token.objects.get_or_create(user=user)
             return response.Response({'token': token.key},
                     status=status.HTTP_200_OK)
+
+
+class UploadPassport(generics.CreateAPIView):
+    serializer_class = serializers.PassportSerializer
+    queryset = models.PassportPhoto.objects.all()
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+
+class DeletePassport(generics.DestroyAPIView):
+    serializer_class = serializers.PassportSerializer
+    queryset = models.PassportPhoto.objects.all()
+
+
+class UpdatePassport(generics.UpdateAPIView):
+    serializer_class = serializers.PassportSerializer
+    queryset = models.PassportPhoto.objects.all()
