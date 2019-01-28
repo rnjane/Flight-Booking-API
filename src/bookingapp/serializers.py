@@ -21,3 +21,17 @@ class PassportSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PassportPhoto
         fields = ['owner', 'image', 'id']
+
+
+class FlightsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Flight
+        fields = '__all__'
+
+
+class FlightBookingSerializer(serializers.ModelSerializer):
+    owner = UserSerializer(read_only=True)
+    flight = FlightsSerializer(read_only=True)
+    class Meta:
+        model = models.FlightBooking
+        fields = ['owner', 'flight']
