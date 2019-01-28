@@ -30,3 +30,4 @@ class FlightBooking(models.Model):
     flight = models.OneToOneField(Flight, related_name='user_booking', on_delete=models.CASCADE, primary_key=True)
     owner = models.ForeignKey(User, related_name='bookings', on_delete=models.CASCADE)
     reserved = models.BooleanField(default=False)
+    date_created = models.DateTimeField(auto_now_add=True)

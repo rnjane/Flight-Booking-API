@@ -27,4 +27,7 @@ urlpatterns = [
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('done/<str:flight_name>/', views.payment_done, name='done'),
     path('canceled/', views.payment_canceled, name='canceled'),
+
+    #report`
+    path('flights-report/', views.FlightsReport.as_view(), name='flights_report')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
