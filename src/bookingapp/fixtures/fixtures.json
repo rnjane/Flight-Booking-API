@@ -1,0 +1,482 @@
+[
+    {
+        "model": "bookingapp.flight",
+        "pk": 1,
+        "fields": {
+            "name": "KQAB2134",
+            "destination": "Seattle",
+            "capacity": 240,
+            "departure_from": "Kampala",
+            "date_time_of_flight": "2019-01-02T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 2,
+        "fields": {
+            "name": "KQAB2136",
+            "destination": "Brussels",
+            "capacity": 300,
+            "departure_from": "Dodoma",
+            "date_time_of_flight": "2019-01-11T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 3,
+        "fields": {
+            "name": "KQAB2135",
+            "destination": "Istanbul",
+            "capacity": 150,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2019-01-05T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 4,
+        "fields": {
+            "name": "KQAB0034",
+            "destination": "London",
+            "capacity": 400,
+            "departure_from": "Khartoum",
+            "date_time_of_flight": "2019-01-02T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 5,
+        "fields": {
+            "name": "KQAB9134",
+            "destination": "Abu Dhabi",
+            "capacity": 350,
+            "departure_from": "Addis Ababa",
+            "date_time_of_flight": "2019-01-11T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 6,
+        "fields": {
+            "name": "KQAB2234",
+            "destination": "New York",
+            "capacity": 500,
+            "departure_from": "Kigali",
+            "date_time_of_flight": "2019-01-31T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 7,
+        "fields": {
+            "name": "KQAB2104",
+            "destination": "Osaka",
+            "capacity": 550,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2019-01-15T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 8,
+        "fields": {
+            "name": "KQAB7134",
+            "destination": "Beijing",
+            "capacity": 430,
+            "departure_from": "Kisumu",
+            "date_time_of_flight": "2019-01-15T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 9,
+        "fields": {
+            "name": "KQAB2154",
+            "destination": "Paris",
+            "capacity": 300,
+            "departure_from": "Mombasa",
+            "date_time_of_flight": "2018-12-31T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 10,
+        "fields": {
+            "name": "KQAB2145",
+            "destination": "San Francisco",
+            "capacity": 250,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2018-12-29T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 1,
+        "fields": {
+            "name": "KQAB21341",
+            "destination": "Seattle",
+            "capacity": 240,
+            "departure_from": "Kampala",
+            "date_time_of_flight": "2019-01-02T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 2,
+        "fields": {
+            "name": "KQAB21361",
+            "destination": "Brussels",
+            "capacity": 300,
+            "departure_from": "Dodoma",
+            "date_time_of_flight": "2019-01-11T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 3,
+        "fields": {
+            "name": "KQAB21351",
+            "destination": "Istanbul",
+            "capacity": 150,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2019-01-05T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 4,
+        "fields": {
+            "name": "KQAB00341",
+            "destination": "London",
+            "capacity": 400,
+            "departure_from": "Khartoum",
+            "date_time_of_flight": "2019-01-02T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 5,
+        "fields": {
+            "name": "KQAB91341",
+            "destination": "Abu Dhabi",
+            "capacity": 350,
+            "departure_from": "Addis Ababa",
+            "date_time_of_flight": "2019-01-11T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 6,
+        "fields": {
+            "name": "KQAB22341",
+            "destination": "New York",
+            "capacity": 500,
+            "departure_from": "Kigali",
+            "date_time_of_flight": "2019-01-31T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 7,
+        "fields": {
+            "name": "KQAB21041",
+            "destination": "Osaka",
+            "capacity": 550,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2019-01-15T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 8,
+        "fields": {
+            "name": "KQAB71341",
+            "destination": "Beijing",
+            "capacity": 430,
+            "departure_from": "Kisumu",
+            "date_time_of_flight": "2019-01-15T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 9,
+        "fields": {
+            "name": "KQAB21541",
+            "destination": "Paris",
+            "capacity": 300,
+            "departure_from": "Mombasa",
+            "date_time_of_flight": "2018-12-31T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 10,
+        "fields": {
+            "name": "KQAB21451",
+            "destination": "San Francisco",
+            "capacity": 250,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2018-12-29T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 1,
+        "fields": {
+            "name": "KQABA2134",
+            "destination": "Seattle",
+            "capacity": 240,
+            "departure_from": "Kampala",
+            "date_time_of_flight": "2019-01-02T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 2,
+        "fields": {
+            "name": "KQABA2136",
+            "destination": "Brussels",
+            "capacity": 300,
+            "departure_from": "Dodoma",
+            "date_time_of_flight": "2019-01-11T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 3,
+        "fields": {
+            "name": "KQABA2135",
+            "destination": "Istanbul",
+            "capacity": 150,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2019-01-05T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 4,
+        "fields": {
+            "name": "KQABA0034",
+            "destination": "London",
+            "capacity": 400,
+            "departure_from": "Khartoum",
+            "date_time_of_flight": "2019-01-02T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 5,
+        "fields": {
+            "name": "KQABA9134",
+            "destination": "Abu Dhabi",
+            "capacity": 350,
+            "departure_from": "Addis Ababa",
+            "date_time_of_flight": "2019-01-11T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 6,
+        "fields": {
+            "name": "KQABA2234",
+            "destination": "New York",
+            "capacity": 500,
+            "departure_from": "Kigali",
+            "date_time_of_flight": "2019-01-31T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 7,
+        "fields": {
+            "name": "KQABA2104",
+            "destination": "Osaka",
+            "capacity": 550,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2019-01-15T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 8,
+        "fields": {
+            "name": "KQABA7134",
+            "destination": "Beijing",
+            "capacity": 430,
+            "departure_from": "Kisumu",
+            "date_time_of_flight": "2019-01-15T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 9,
+        "fields": {
+            "name": "KQABA2154",
+            "destination": "Paris",
+            "capacity": 300,
+            "departure_from": "Mombasa",
+            "date_time_of_flight": "2018-12-31T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 10,
+        "fields": {
+            "name": "KQABA2145",
+            "destination": "San Francisco",
+            "capacity": 250,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2018-12-29T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 1,
+        "fields": {
+            "name": "KQABA21341",
+            "destination": "Seattle",
+            "capacity": 240,
+            "departure_from": "Kampala",
+            "date_time_of_flight": "2019-01-02T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 2,
+        "fields": {
+            "name": "KQABA21361",
+            "destination": "Brussels",
+            "capacity": 300,
+            "departure_from": "Dodoma",
+            "date_time_of_flight": "2019-01-11T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 3,
+        "fields": {
+            "name": "KQABA21351",
+            "destination": "Istanbul",
+            "capacity": 150,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2019-01-05T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 4,
+        "fields": {
+            "name": "KQABA00341",
+            "destination": "London",
+            "capacity": 400,
+            "departure_from": "Khartoum",
+            "date_time_of_flight": "2019-01-02T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 5,
+        "fields": {
+            "name": "KQABA91341",
+            "destination": "Abu Dhabi",
+            "capacity": 350,
+            "departure_from": "Addis Ababa",
+            "date_time_of_flight": "2019-01-11T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 6,
+        "fields": {
+            "name": "KQABA22341",
+            "destination": "New York",
+            "capacity": 500,
+            "departure_from": "Kigali",
+            "date_time_of_flight": "2019-01-31T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 7,
+        "fields": {
+            "name": "KQABA21041",
+            "destination": "Osaka",
+            "capacity": 550,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2019-01-15T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 8,
+        "fields": {
+            "name": "KQABA71341",
+            "destination": "Beijing",
+            "capacity": 430,
+            "departure_from": "Kisumu",
+            "date_time_of_flight": "2019-01-15T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 9,
+        "fields": {
+            "name": "KQABA21541",
+            "destination": "Paris",
+            "capacity": 300,
+            "departure_from": "Mombasa",
+            "date_time_of_flight": "2018-12-31T14:20:37Z",
+            "cost": 120
+        }
+    },
+    {
+        "model": "bookingapp.flight",
+        "pk": 10,
+        "fields": {
+            "name": "KQABA21451",
+            "destination": "San Francisco",
+            "capacity": 250,
+            "departure_from": "Nairobi",
+            "date_time_of_flight": "2018-12-29T14:20:37Z",
+            "cost": 120
+        }
+    }
+]
