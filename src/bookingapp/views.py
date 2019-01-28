@@ -3,6 +3,11 @@ from rest_framework import status, response, permissions, generics, views, autht
 from rest_framework import serializers as sz
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from rest_framework.decorators import permission_classes
+from django.shortcuts import render, reverse
+from paypal.standard.forms import PayPalPaymentsForm
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.permissions import IsAuthenticated
+from django.conf import settings
 from . import serializers, models
 
 
@@ -79,3 +84,43 @@ class ViewBookings(generics.ListAPIView):
 class CheckFlightStatus(generics.RetrieveAPIView):
     serializer_class = serializers.FlightBookingSerializer
     queryset = models.FlightBooking.objects.all()
+
+
+@permission_classes((IsAuthenticated, ))
+def pay(request, pk):
+    flight = models.Flight.objects.get(pk=pk)
+    paypal_dict = {
+        "business": settings.PAYPAL_RECEIVER_EMAIL
+        "amount": flight.cost,
+        "item_name": flight.name,
+        "invoice": flight.name + request.user.username + flight.name,
+        "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
+        "return": request.build_absolute_uri(reverse('done', kwargs={"flight_name": flight.name})),
+        "cancel_return": request.build_absolute_uri(reverse('canceled')),
+    }
+
+    form = PayPalPaymentsForm(initial=paypal_dict)
+    context = {"form": form, "amount": flight.cost, "item_name": flight.name}
+    return render(request, "payment.html", context)
+
+@csrf_exempt
+@permission_classes((IsAuthenticated, ))
+def payment_done(request, flight_name):
+    flight = models.Flight.objects.get(pk=flight_name)
+    obj, created = models.FlightBooking.objects.get_or_create(
+        owner=request.user,
+        flight=flight,
+        reserved=True
+    )
+    if obj:
+        obj.reserved = True
+        obj.save()
+
+    context = {"amount": flight.cost, "item_name": flight.name}
+    return render(request, 'done.html', context)
+
+
+@csrf_exempt
+@permission_classes((IsAuthenticated, ))
+def payment_canceled(request):
+    return render(request, 'cancelled.html')

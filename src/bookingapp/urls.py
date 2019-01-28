@@ -20,4 +20,11 @@ urlpatterns = [
     path('create-booking/<str:flight_name>/', views.CreateBooking.as_view(), name='create_booking'),
     path('bookings/', views.ViewBookings.as_view(), name='view_bookings'),
     path('check-status/<str:pk>/', views.CheckFlightStatus.as_view(), name='check_flight_status'),
+
+    #payments
+    path('pay/<str:pk>/', views.pay, name='pay'),
+    path('reserve/<str:pk>/', views.pay, name='reserve'),
+    path('paypal/', include('paypal.standard.ipn.urls')),
+    path('done/<str:flight_name>/', views.payment_done, name='done'),
+    path('canceled/', views.payment_canceled, name='canceled'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
