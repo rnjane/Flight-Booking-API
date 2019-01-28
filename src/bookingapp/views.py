@@ -8,6 +8,7 @@ from paypal.standard.forms import PayPalPaymentsForm
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
+from datetime import datetime, timedelta
 from . import serializers, models
 
 
@@ -86,11 +87,18 @@ class CheckFlightStatus(generics.RetrieveAPIView):
     queryset = models.FlightBooking.objects.all()
 
 
+class FlightsReport(generics.ListAPIView):
+    serializer_class = serializers.FlightBookingSerializer
+    def get_queryset(self):
+        time_threshold = datetime.now() - timedelta(hours=24)
+        return models.FlightBooking.objects.filter(date_created__gte=time_threshold)
+
+
 @permission_classes((IsAuthenticated, ))
 def pay(request, pk):
     flight = models.Flight.objects.get(pk=pk)
     paypal_dict = {
-        "business": settings.PAYPAL_RECEIVER_EMAIL
+        "business": settings.PAYPAL_RECEIVER_EMAIL,
         "amount": flight.cost,
         "item_name": flight.name,
         "invoice": flight.name + request.user.username + flight.name,
