@@ -47,17 +47,25 @@ class UploadPassport(generics.CreateAPIView):
     queryset = models.PassportPhoto.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        try:
+            photo = models.PassportPhoto.objects.get(owner=self.request.user)
+            photo.delete()
+            serializer.save(owner=self.request.user)
+        except ObjectDoesNotExist:
+            serializer.save(owner=self.request.user)
 
 
 class DeletePassport(generics.DestroyAPIView):
     serializer_class = serializers.PassportSerializer
-    queryset = models.PassportPhoto.objects.all()
 
+    def get_object(self):
+        return models.PassportPhoto.objects.get(owner=self.request.user)
 
 class UpdatePassport(generics.UpdateAPIView):
     serializer_class = serializers.PassportSerializer
-    queryset = models.PassportPhoto.objects.all()
+    
+    def get_object(self):
+        return models.PassportPhoto.objects.get(owner=self.request.user)
 
 
 class ViewFlights(generics.ListAPIView):

@@ -1,0 +1,4 @@
+export PAYPAL_RECEIVER_EMAIL='njanelabs-facilitator@outlook.com'
+export EMAIL_HOST='smtp.gmail.com'
+export EMAIL_HOST_PASSWORD='your email password'
+export EMAIL_HOST_USER='your email'

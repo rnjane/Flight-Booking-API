@@ -12,8 +12,8 @@ urlpatterns = [
 
     #Passport operations
     path('upload-passport/', views.UploadPassport.as_view(), name='upload_passport'),
-    path('remove-passport/<int:pk>/', views.DeletePassport.as_view(), name='remove_passport'),
-    path('update-passport/<int:pk>/', views.UpdatePassport.as_view(), name='update_passport'),
+    path('remove-passport/', views.DeletePassport.as_view(), name='remove_passport'),
+    path('update-passport/', views.UpdatePassport.as_view(), name='update_passport'),
 
     #flight booking operations
     path('flights/', views.ViewFlights.as_view(), name='view_flights'),
