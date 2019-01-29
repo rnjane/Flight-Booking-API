@@ -11,6 +11,8 @@ from django.conf import settings
 from datetime import datetime, timedelta
 from . import serializers, models
 
+from rest_framework.decorators import permission_classes
+from .serializers import UserSerializer
 
 User = get_user_model()
 
