@@ -9,6 +9,8 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
 from datetime import datetime, timedelta
+from django.core.mail import send_mail
+from django.conf import settings
 from . import serializers, models
 
 from rest_framework.decorators import permission_classes
@@ -77,6 +79,14 @@ class CreateBooking(generics.CreateAPIView):
         if queryset.exists():
             raise sz.ValidationError("You have already booked this flight.")
         serializer.save(flight_id=self.kwargs['flight_name'], owner=self.request.user)
+        flight = models.FlightBooking.objects.get(flight_id=self.kwargs['flight_name'], owner=self.request.user)
+        send_mail(
+            'You have succesfully booked a flight',
+            flight.flight.name + "Will be on " + flight.flight.date_time_of_flight.strftime("%Y-%m-%d %H:%M:%S"),
+            settings.EMAIL_HOST_USER,
+            [flight.owner.email],
+            fail_silently=False,
+        )
 
 
 class ViewBookings(generics.ListAPIView):
