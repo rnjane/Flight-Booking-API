@@ -35,7 +35,7 @@ class LoginUser(views.APIView):
         user = authenticate(username=username, password=password)
         if not user:
             return response.Response({'error': 'Invalid Credentials'},
-                        status=status.HTTP_404_NOT_FOUND)
+                        status=status.HTTP_401_UNAUTHORIZED)
         else:
             token, _ = authtoken.models.Token.objects.get_or_create(user=user)
             return response.Response({'token': token.key},
