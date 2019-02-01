@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from model_mommy import mommy
 import tempfile
 from PIL import Image
-from . import models
+from . import models, serializers
 
 class TestsSetUp(APITestCase):
     fixtures = ['fixtures']
@@ -26,17 +26,30 @@ class TestsSetUp(APITestCase):
         self.token = Token.objects.create(user=self.user)
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
         self.client.post(reverse('upload_passport'), {'image': self.get_temporary_image()}, format='multipart')
+        self.client.post(reverse('create_booking', kwargs={'flight_name': 'KQAB21361'}))
 
 
 class UserAuthTests(TestsSetUp):
     '''Authentication related tests'''
-    def test_admin_login_successful_with_valid_credentials(self):
+    def test_user_login_successful_with_valid_credentials(self):
         response = self.client.post(reverse('login'), {'username': 'testuser', 'password': 'testpass12'})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_admin_login_with_wrong_credentials_fail(self):
+    def test_user_login_with_wrong_credentials_fail(self):
         response = self.client.post(reverse('login'), {'username': 'wrongusername', 'password': 'wrongone'})
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_user_login_with_missing_credentials_fail(self):
+        response = self.client.post(reverse('login'), {'password': 'wrongone'})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_user_register_fails_with_wrong_email(self):
+        response = self.client.post(reverse('register'), {'username': 'test_user', 'email': 'testtest.com', 'password': 'testpass'})
+        self.assertIn('Enter a valid email address.', response.data['email'])
+
+    def test_user_register_fails_with_invalid_password(self):
+        response = self.client.post(reverse('register'), {'username': 'test_user', 'email': 'test@test.com', 'password': 'short'})
+        self.assertIn('Enter a valid password. Password should be at least 8 characters long.', response.data)
 
 
 class FlightsTests(TestsSetUp):
@@ -53,6 +66,14 @@ class FlightsTests(TestsSetUp):
         unauthorized_client = APIClient()
         response = unauthorized_client.post(reverse('create_booking', kwargs={'flight_name': 'KQAB2135'}))
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_user_create_a_booking_fails_with_invalid_flight(self):
+        response = self.client.post(reverse('create_booking', kwargs={'flight_name': 'NOEXIST'}))
+        self.assertIn('The specified flight does not exist.', response.data)
+
+    def test_user_cann_book_a_flight_twice(self):
+        response = self.client.post(reverse('create_booking', kwargs={'flight_name': 'KQAB21361'}))
+        self.assertIn('You have already booked this flight.', response.data)
 
     def test_user_can_view_their_bookings(self):
         response = self.client.get(reverse('view_bookings'))

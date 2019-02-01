@@ -13,16 +13,12 @@ class UserSerializer(serializers.ModelSerializer):
             
 
     def create(self, validated_data):
-        email = validated_data['email']
-        username = validated_data['username']
-        password = validated_data['password']
-
-        if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+        if not re.match(r"[^@]+@[^@]+\.[^@]+", validated_data['email']):
             raise ValidationError("Enter a valid email address.")
-        if not re.match(r'[A-Za-z0-9@#$%^&+=]{8,}', password):
+        if not re.match(r'[A-Za-z0-9@#$%^&+=]{8,}', validated_data['password']):
             raise ValidationError("Enter a valid password. Password should be at least 8 characters long.")
-        user = User(username=username, email=email)
-        user.set_password(password)
+        user = User(username=validated_data['username'], email=validated_data['email'])
+        user.set_password(validated_data['password'])
         user.save()
         return validated_data
 
