@@ -12,8 +12,5 @@ install:
 
 script:
   - coverage run --source=src/bookingapp src/manage.py test
-  - coverage report --omit=src/bookingapp/tests
 
-after_success:
-  coveralls
 cache: pip
