@@ -2,7 +2,7 @@ Build:
 [![Build Status](https://travis-ci.org/rnjane/Flight-Booking-API.svg?branch=develop)](https://travis-ci.org/rnjane/Flight-Booking-API)
 
 Coverage:
-[![Coverage Status](https://coveralls.io/repos/github/rnjane/Flight-Booking-API/badge.svg)](https://coveralls.io/github/rnjane/Flight-Booking-API)
+[![Coverage Status](https://coveralls.io/repos/github/rnjane/Flight-Booking-API/badge.svg?branch=develop)](https://coveralls.io/github/rnjane/Flight-Booking-API?branch=develop)
 
 # Flight-Booking-API
 A Flight booking application backend API.
