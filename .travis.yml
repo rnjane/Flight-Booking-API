@@ -11,6 +11,7 @@ install:
   - pip install coveralls
 
 script:
-  - coverage run --source=src/bookingapp src/manage.py test
+  - cd src
+  - coverage run --source=bookingapp manage.py test
 
 cache: pip
