@@ -1,0 +1,9 @@
+pool:
+  vmImage: 'ubuntu-16.04'
+
+steps:
+  - script: |
+      docker build -t $(dockerId).azurecr.io/$(imageName) .
+      docker login -u $(dockerId) -p $(dockerPassword) $(dockerId).azurecr.io
+      docker push $(dockerId).azurecr.io/$(imageName)
+    displayName: 'Build and push Docker image to ACR'
